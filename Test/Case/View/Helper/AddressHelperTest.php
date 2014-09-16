@@ -1,12 +1,9 @@
 <?php
 App::uses('Controller', 'Controller');
 App::uses('View', 'View');
-App::uses('HtmlHelper', 'View/Helper');
 App::uses('AddressHelper', 'Address.View/Helper');
 
 class AddressHelperTest extends CakeTestCase {
-
-	public $Address = null;
 
 	public function setUp() {
 		parent::setUp();
