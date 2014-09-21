@@ -11,6 +11,22 @@ class AddressHelper extends AppHelper {
 
 	public $helpers = array('Html');
 
+	public $settings = array(
+		'fields' => array(
+			'house_name',
+			array(
+				'house_number',
+				'address_line_1'
+			),
+			'address_line_2',
+			'address_line_3',
+			'city',
+			'county',
+			'postcode',
+			'country'
+		)
+	);
+
 /**
  * Returns a formatted address excluding empty address fields.
  * 
@@ -26,23 +42,9 @@ class AddressHelper extends AppHelper {
 
 		$attributes = array_merge($defaults, $attributes);
 
-		$fields = array(
-			'house_name',
-			array(
-				'house_number',
-				'address_line_1'
-			),
-			'address_line_2',
-			'address_line_3',
-			'city',
-			'county',
-			'postcode',
-			'country'
-		);
-
 		$address = array();
 
-		foreach ($fields as $field) {
+		foreach ($this->settings['fields'] as $field) {
 
 			if (is_array($field)) {
 
