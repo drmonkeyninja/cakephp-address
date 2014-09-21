@@ -31,10 +31,11 @@ class AddressHelper extends AppHelper {
  * Returns a formatted address excluding empty address fields.
  * 
  * @param array $data array containing the address
+ * @param array $fields array of field names to use for address
  * @param array $attributes options
  * @return string
  */
-	public function format($data, $attributes = array()) {
+	public function format($data, $fields = null, $attributes = array()) {
 
 		$defaults = array(
 			'tag' => 'address'
@@ -44,7 +45,9 @@ class AddressHelper extends AppHelper {
 
 		$address = array();
 
-		foreach ($this->settings['fields'] as $field) {
+		$fields = !empty($fields) && is_array($fields) ? $fields : $this->settings['fields'];
+
+		foreach ($fields as $field) {
 
 			if (is_array($field)) {
 
