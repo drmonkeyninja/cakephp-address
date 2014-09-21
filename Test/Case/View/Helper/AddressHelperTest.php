@@ -25,6 +25,15 @@ class AddressHelperTest extends CakeTestCase {
 		$expected = '<address>Winter Gardens<br />90 Surrey Street<br />Sheffield<br />South Yorkshire<br />S1 2LH</address>';
 		$this->assertEquals($expected, $this->Address->format($address));
 
+		// Test overridding of field names
+		$fields = array(
+			'address_line_1',
+			'city',
+			'postcode'
+		);
+		$expected = '<address>90 Surrey Street<br />Sheffield<br />S1 2LH</address>';
+		$this->assertEquals($expected, $this->Address->format($address, $fields));
+
 		// Test address format with combined fields
 		$address = array(
 			'house_number' => '221B',
@@ -38,11 +47,11 @@ class AddressHelperTest extends CakeTestCase {
 
 		// Test class attribute on address tag
 		$expected = '<address class="delivery-address">221B Baker Street<br />Marylebone<br />London<br />NW1 6XE</address>';
-		$this->assertEquals($expected, $this->Address->format($address, array('class' => 'delivery-address')));
+		$this->assertEquals($expected, $this->Address->format($address, null, array('class' => 'delivery-address')));
 
 		// Test non-wrapped address
 		$expected = '221B Baker Street<br />Marylebone<br />London<br />NW1 6XE';
-		$this->assertEquals($expected, $this->Address->format($address, array('tag' => false)));
+		$this->assertEquals($expected, $this->Address->format($address, null, array('tag' => false)));
 
 	}
 
