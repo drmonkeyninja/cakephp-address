@@ -1,7 +1,7 @@
 CakePHP Address
 ===============
 
-[![License](https://poser.pugx.org/drmonkeyninja/cakephp-address/license.png)](https://packagist.org/packages/drmonkeyninja/cakephp-address) (https://travis-ci.org/drmonkeyninja/cakephp-address.svg)](https://travis-ci.org/drmonkeyninja/cakephp-address)
+[![License](https://poser.pugx.org/drmonkeyninja/cakephp-address/license.png)](https://packagist.org/packages/drmonkeyninja/cakephp-address) [![Build Status](https://travis-ci.org/drmonkeyninja/cakephp-address.svg)](https://travis-ci.org/drmonkeyninja/cakephp-address)
 
 This plugin provides a CakePHP 2 View helper for formatting addresses.
 
