@@ -51,8 +51,6 @@ class AddressHelperTest extends CakeTestCase {
 		// Test non-wrapped address
 		$expected = '221B Baker Street<br />Marylebone<br />London<br />NW1 6XE';
 		$this->assertEquals($expected, $this->Address->format($address, null, array('tag' => false)));
-
-		return;
 	}
 
 }
