@@ -13,7 +13,6 @@ class AddressHelperTest extends CakeTestCase {
 	}
 
 	public function testFormat() {
-
 		// Test basic address format
 		$address = array(
 			'house_name' => 'Winter Gardens',
@@ -53,6 +52,7 @@ class AddressHelperTest extends CakeTestCase {
 		$expected = '221B Baker Street<br />Marylebone<br />London<br />NW1 6XE';
 		$this->assertEquals($expected, $this->Address->format($address, null, array('tag' => false)));
 
+		return;
 	}
 
 }
