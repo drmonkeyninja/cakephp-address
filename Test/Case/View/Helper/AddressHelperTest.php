@@ -53,4 +53,27 @@ class AddressHelperTest extends CakeTestCase {
 		$this->assertEquals($expected, $this->Address->format($address, null, array('tag' => false)));
 	}
 
+	public function testFormat2() {
+		// Test complex address
+		$address = array(
+			'house_name' => 'Winter Gardens',
+			'address_line_1' => '90 Surrey Street',
+			'city' => 'Sheffield',
+			'county' => 'South Yorkshire',
+			'postcode' => 'S1 2LH',
+			'Country' => array(
+				'name' => 'United Kingdom'
+			)
+		);
+		$fields = array(
+			'house_name',
+			'address_line_1',
+			'city',
+			'postcode',
+			'Country.name'
+		);
+		$expected = '<address>Winter Gardens<br />90 Surrey Street<br />Sheffield<br />S1 2LH<br />United Kingdom</address>';
+		$this->assertEquals($expected, $this->Address->format($address, $fields));
+	}
+
 }

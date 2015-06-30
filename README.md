@@ -61,3 +61,27 @@ You can change the wraptag using the tag option in the third parameter and set o
 Output:-
 
     <div class="address">90 Surrey Street<br />Sheffield<br />S1 2LH</div>
+
+The field names support the Hash direct path syntax so that you can use slightly more complex address arrays with the formatter. For example, we can handle an associated Country model like this:-
+
+    $data['CustomerAddress'] = array(
+        'house_name' => 'Winter Gardens',
+        'address_line_1' => '90 Surrey Street',
+        'city' => 'Sheffield',
+        'postcode' => 'S1 2LH',
+        'Country' => array(
+            'name' => 'United Kingdom'
+        )
+    );
+    $fields = array(
+        'house_name',
+        'address_line_1',
+        'city',
+        'postcode',
+        'Country.name'
+    );
+    echo $this->Address->format($data['CustomerAddress'], $fields);
+
+Output:-
+
+    <address>Winter Gardens<br />90 Surrey Street<br />Sheffield<br />S1 2LH<br />United Kingdom</address>

@@ -53,8 +53,9 @@ class AddressHelper extends AppHelper {
 				$line = array();
 
 				foreach ($field as $item) {
-					if (!empty($data[$item])) {
-						$line[] = $data[$item];
+					$val = Hash::get($data, $item);
+					if (!empty($val)) {
+						$line[] = $val;
 					}
 				}
 
@@ -62,8 +63,9 @@ class AddressHelper extends AppHelper {
 
 			} else {
 
-				if (!empty($data[$field])) {
-					$address[] = $data[$field];
+				$val = Hash::get($data, $field);
+				if (!empty($val)) {
+					$address[] = $val;
 				}
 
 			}
