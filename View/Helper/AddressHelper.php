@@ -1,7 +1,7 @@
 <?php
 /**
  * Helper for easily rendering an address in a View template.
- * 
+ *
  * e.g. echo $this->Address->format($data['CustomerAddress']);
  */
 
@@ -29,14 +29,13 @@ class AddressHelper extends AppHelper {
 
 /**
  * Returns a formatted address excluding empty address fields.
- * 
+ *
  * @param array $data array containing the address
  * @param array $fields array of field names to use for address
  * @param array $attributes options
  * @return string
  */
 	public function format($data, $fields = null, $attributes = array()) {
-
 		$defaults = array(
 			'tag' => 'address'
 		);
@@ -80,7 +79,6 @@ class AddressHelper extends AppHelper {
 		}
 
 		return $formattedAddress;
-
 	}
 
 }
