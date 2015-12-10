@@ -59,7 +59,9 @@ class AddressHelper extends AppHelper {
 					}
 				}
 
-				$address[] = implode(' ', $line);
+				if (!empty($line)) {
+					$address[] = implode(' ', $line);
+				}
 
 			} else {
 
