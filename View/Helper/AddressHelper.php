@@ -11,21 +11,30 @@ class AddressHelper extends AppHelper {
 
 	public $helpers = array('Html');
 
-	public $settings = array(
-		'fields' => array(
-			'house_name',
-			array(
-				'house_number',
-				'address_line_1'
-			),
-			'address_line_2',
-			'address_line_3',
-			'city',
-			'county',
-			'postcode',
-			'country'
-		)
+	public $defaultFields = array(
+		'house_name',
+		array(
+			'house_number',
+			'address_line_1'
+		),
+		'address_line_2',
+		'address_line_3',
+		'city',
+		'county',
+		'postcode',
+		'Country.name'
 	);
+
+/**
+ * Default Constructor
+ *
+ * @param View $View The View this helper is being attached to.
+ * @param array $settings Configuration settings for the helper.
+ */
+	public function __construct(View $View, $settings = array()) {
+		$settings['fields'] = !empty($settings['fields']) ? $settings['fields'] : $this->defaultFields;
+		parent::__construct($View, $settings);
+	}
 
 /**
  * Returns a formatted address excluding empty address fields.
