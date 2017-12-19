@@ -46,7 +46,8 @@ class AddressHelper extends AppHelper {
  */
 	public function format($data, $fields = null, $attributes = array()) {
 		$defaults = array(
-			'tag' => 'address'
+			'tag' => 'address',
+			'separator' => '<br />'
 		);
 
 		$attributes = array_merge($defaults, $attributes);
@@ -83,11 +84,11 @@ class AddressHelper extends AppHelper {
 
 		}
 
-		$formattedAddress = implode('<br />', $address);
+		$formattedAddress = implode($attributes['separator'], $address);
 
 		if (!empty($attributes['tag'])) {
 			$tag = $attributes['tag'];
-			unset($attributes['tag']);
+			unset($attributes['tag'], $attributes['separator']);
 			$formattedAddress = $this->Html->tag($tag, $formattedAddress, $attributes);
 		}
 

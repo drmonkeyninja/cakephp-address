@@ -85,3 +85,11 @@ The field names support the Hash direct path syntax so that you can use slightly
 Output:-
 
     <address>Winter Gardens<br />90 Surrey Street<br />Sheffield<br />S1 2LH<br />United Kingdom</address>
+
+You can change the output markup by passing values for `tag` and `separator`:-
+
+	echo $this->Address->format($data['CustomerAddress'], $fields, array('tag' => 'p', 'separator' => ', '));
+
+Output:-
+
+    <p>Winter Gardens, 90 Surrey Street, Sheffield, S1 2LH, United Kingdom</p>
